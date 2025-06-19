@@ -1,134 +1,59 @@
-# SmartSDLC: AI-Powered Software Development Assistant 🚀
+# 🧠 SmartSDLC: AI-Enhanced Software Development Lifecycle
 
-**SmartSDLC** is an AI-powered tool designed to streamline the software development lifecycle by providing automated assistance for common coding tasks. Built with **Python**, **Gradio**, and the **IBM Granite model** (`ibm-granite/granite-3.0-2b-instruct`), this tool helps developers by generating docstrings, reviewing code, predicting bugs, and creating project reports—all with a simple upload of a Python file.
+Welcome to the **SmartSDLC** project! This application leverages **AI** to enhance the software development lifecycle by providing tools for:
 
----
+✅ Code analysis  
+✅ Functional requirement generation  
+✅ Real-time security monitoring
 
-## Features ✨
-
-- **Generate Docstrings**: Automatically add Google-style docstrings to your Python code.
-- **Review Code**: Get feedback on PEP8 compliance, logic errors, potential bugs, and improvement suggestions.
-- **Predict Bugs**: Identify potential bugs, security vulnerabilities, and issues in your code.
-- **Generate Project Report**: Create a comprehensive report summarizing your project's purpose, key functions, structure, and areas for improvement.
-
----
-## Demo 🎥
-
-Check out this video for a full demo of SmartSDLC in action!  
-[Watch the demo on Google Drive](https://drive.google.com/file/d/1Lge_G28Yta5R3c4Mv-LZHI2Pl-RWmYXQ/view?usp=drive_link)
+![SmartSDLC Interface](https://github.com/user-attachments/assets/f3a17041-84e2-4f97-a929-f892065f8b42)
 
 ---
 
-## Installation 🛠️
+## 🚀 Features
 
-SmartSDLC can be run in a **Google Colab** environment or locally. Follow these steps to set it up:
+### 🔍 Code Analysis
 
-### Prerequisites
+- 📝 Generate Google-style Python docstrings  
+- 🧪 Review code for correctness and best practices  
+- 🐞 Predict potential bugs and logic errors  
+- 📊 Generate project reports and code metrics  
+- ⚙️ Suggest optimizations for performance and maintainability  
 
-- Python 3.8 or higher
-- A Google Colab account (recommended for easy setup) or a local Python environment
-- A GPU runtime (recommended for faster model loading and inference)
+![Code Analysis Screenshot](https://github.com/user-attachments/assets/6cf9f3cc-8e5a-475f-a935-84927cc0f925)
 
-### Step 1: Clone the Repository
+---
+
+### 📘 Functional Analysis
+
+- 🔎 Summarize software requirements  
+- 💻 Generate Python code based on requirements  
+- 🧪 Create test cases from requirements  
+
+![Functional Analysis Screenshot](https://github.com/user-attachments/assets/7e78c4ac-6664-4cb2-afcc-4b580c9e5d65)
+
+---
+
+### 🛡️ Security Monitor
+
+- 📁 Upload files for LLM-based security scanning  
+- 👀 Simulate live threat alerts  
+- 📄 Generate detailed security reports  
+
+![Security Monitor Screenshot](https://github.com/user-attachments/assets/9fc3f388-5679-46ba-aaa6-68385211db6a)
+
+---
+
+## ⚙️ Installation
+
+Make sure you have Python 3.8+ and install the required packages:
 
 ```bash
-git clone https://github.com/sasankreddy19/smart-sdlc.git
-cd smart-sdlc
+pip install gradio torch transformers timeout-decorator requests black radon pycodestyle
 ```
 
-### Step 2: Install Dependencies
+## 📽️ DEMO VIDEO
 
-Install the required Python packages using pip:
+You can watch the demo video of this project at the following link:
 
-```bash
-pip install transformers torch bitsandbytes gradio timeout-decorator
-```  
-
-### Step 3: Run in Google Colab (Recommended)
-
-1. Open the `smartsdlc_colab_ngrok_(2).ipynb` notebook in [Google Colab](https://colab.research.google.com/).  
-2. Go to **Runtime > Change runtime type**, and select **GPU** (e.g., T4).  
-3. Run all the cells to install dependencies and launch the Gradio interface.
-
-### Step 4: Run Locally (Optional)
-
-Make sure your system has a GPU with at least **8GB VRAM** for optimal performance.  
-Then run the main script in your terminal:
-
-```bash
-python smart_sdlc.py
-```
-
-Usage 📖
---------
-
-### Launch the Application
-
-*   **In Colab**: Run the notebook cells to start the Gradio interface.
-    
-*   **Locally**: Run python smart\_sdlc.py to launch the interface in your browser.
-    
-
-### Upload a Python File
-
-*   Use the file upload button to upload a .py file (e.g., example.py).
-    
-
-### Select a Functionality
-
-*   Click one of the buttons: **"Generate Docstrings"**, **"Review Code"**, **"Predict Bugs"**, or **"Generate Project Report"**.
-    
-*   The AI output will appear in the text box below.
-    
-
-Example Input File (example.py)
--------------------------------
-def add_numbers(a, b):      return a + b  def multiply_numbers(a, b):      result = a * b      return result   `
-
-Example Outputs
----------------
-
-### Generate Docstrings
-
-def add_numbers(a, b):      """Add two numbers and return their sum.      Args:          a: The first number.          b: The second number.      Returns:          The sum of the two numbers.      """      return a + b  def multiply_numbers(a, b):      """Multiply two numbers and return their product.      Args:          a: The first number.          b: The second number.      Returns:          The product of the two numbers.      """      result = a * b      return result   `
-
-### Review Code
-Review:  - PEP8: Add two blank lines before `multiply_numbers`. Add docstrings.  - Logic: No errors found.  - Bugs: No type checking; `add_numbers("1", 2)` will raise TypeError.  - Suggestions: Use type hints, e.g., `def add_numbers(a: float, b: float) -> float`.   ``
-
-### Predict Bugs
- pythonCopyEditIssues:  - Type Safety: No input validation. Non-numeric inputs will raise TypeError.  - Suggestion: Add type checking, e.g., `if not isinstance(a, (int, float)):` .  - Security: No vulnerabilities detected.   ``
-
-### Generate Project Report
-Project Report:  Purpose: Basic arithmetic operations (addition, multiplication).  Key Functions: `add_numbers(a, b)`, `multiply_numbers(a, b)`.  Structure: Simple, lacks error handling and documentation.  Improvements: Add input validation, docstrings, type hints.   ``
-
-Model Details 🤖
-----------------
-
-SmartSDLC uses the ibm-granite/granite-3.0-2b-instruct model from IBM, hosted on Hugging Face.This 2-billion-parameter model is optimized for instruction-following tasks and is well-suited for code-related analysis.The model is loaded with **4-bit quantization** to reduce memory usage, making it feasible to run in Colab with a GPU.
-
-Troubleshooting 🐞
-------------------
-
-### Model Loading Takes Too Long
-
-*   Ensure you're using a GPU runtime in Colab.
-    
-*   The model may take a few minutes to download the first time (cached afterward).
-    
-*   If it times out, check your internet connection or try a smaller model like ibm-granite/granite-3.0-1b-base.
-    
-
-### Error: "AI model is not loaded"
-
-*   Verify that the model path (ibm-granite/granite-3.0-2b-instruct) is accessible.
-    
-*   You may need a Hugging Face token if the model is gated.
-    
-*   Check the Colab output for detailed error messages (debug=True).
-    
-
-### Gradio Interface Issues
-
-*   Ensure all dependencies are installed: transformers, torch, bitsandbytes, gradio, timeout-decorator.
-    
-*   If running locally, make sure your browser allows the Gradio interface to load.
+👉 [Watch SmartSDLC Demo Video](https://drive.google.com/file/d/1gjEbTo1ME1OCzhHeVQ5SR7coPOk-2n_7/view?usp=sharing)
